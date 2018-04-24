@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">SerVisLaptop</string>
+    <string-array name="kerusakan">
+        <item>Mainboard</item>
+        <item>LCD</item>
+        <item>Keyboard</item>
+        <item>OS</item>
+        <item>Harddisk</item>
+        <item>Aplikasi</item>
+        <item>Lainnya</item>
+    </string-array>
+    <string-array name="merk">
+        <item>Lenovo</item>
+        <item>Samsung</item>
+        <item>Asus</item>
+        <item>Fujitsu</item>
+        <item>Acer</item>
+        <item>HP</item>
+        <item>Dell</item>
+        <item>Apple</item>
+        <item>Hasee</item>
+        <item>IBM</item>
+        <item>SonyVaioo</item>
+    </string-array>
+</resources>

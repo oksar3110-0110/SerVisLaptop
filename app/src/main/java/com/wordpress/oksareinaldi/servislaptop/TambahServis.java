@@ -95,7 +95,7 @@ public class TambahServis extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 int index = adapterView.getSelectedItemPosition();
-                Toast.makeText(getBaseContext(), "Kerusakan" + kerusakan[index], Toast.LENGTH_SHORT).show();
+               /* Toast.makeText(getBaseContext(), "Kerusakan" + kerusakan[index], Toast.LENGTH_SHORT).show();*/
             }
 
             @Override
@@ -178,33 +178,11 @@ public class TambahServis extends AppCompatActivity implements View.OnClickListe
             String kerusakan = spin.getSelectedItem().toString();
             String brand = textView1.getText().toString();
             String kota = textView.getText().toString();
-            if(Nama.getText().toString().isEmpty()){
-                Toast.makeText(getBaseContext(), "Nama Tidak Boleh Kosong!", Toast.LENGTH_SHORT).show();
-            }
-            if(etJam.getText().toString().isEmpty()){
-                Toast.makeText(getBaseContext(), "Jam Tidak Boleh Kosong!", Toast.LENGTH_SHORT).show();
-
-            }
-            if(etTanggal.getText().toString().isEmpty()){
-                Toast.makeText(getBaseContext(), "Tanggal Tidak Boleh Kosong!", Toast.LENGTH_SHORT).show();
-            }
-            if(terTanggal.getText().toString().isEmpty()){
-                Toast.makeText(getBaseContext(), "Tanggal Tidak Boleh Kosong!", Toast.LENGTH_SHORT).show();
-            }
-            if(terJam.getText().toString().isEmpty()){
-                Toast.makeText(getBaseContext(), "Jam Tidak Boleh Kosong!", Toast.LENGTH_SHORT).show();
-            }
-            if(spin.getSelectedItem().toString().isEmpty()){
-                Toast.makeText(getBaseContext(), "Kerusakan Tidak Boleh Kosong!", Toast.LENGTH_SHORT).show();
-            }
-            if(textView.getText().toString().isEmpty()){
-                Toast.makeText(getBaseContext(), "Kota Tidak Boleh Kosong!", Toast.LENGTH_SHORT).show();
-            }
-            if(textView1.getText().toString().isEmpty()){
-                Toast.makeText(getBaseContext(), "Brand Tidak Boleh Kosong!", Toast.LENGTH_SHORT).show();
-            }
-
-            else {
+            if(Nama.getText().toString().isEmpty() || etJam.getText().toString().isEmpty() || etTanggal.getText().toString().isEmpty() ||
+                    terTanggal.getText().toString().isEmpty() || terJam.getText().toString().isEmpty() || spin.getSelectedItem().toString().isEmpty() ||
+                    textView.getText().toString().isEmpty() || textView1.getText().toString().isEmpty()){
+                Toast.makeText(getBaseContext(), "Masih ada Field Kosong!!", Toast.LENGTH_SHORT).show();
+            } else {
 
 
                /* Intent intent = new Intent(MainActivity.this, hasilEstimasi.class);

@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.wordpress.oksareinaldi.servislaptop.ListCabang">
+    android:layout_height="304dp"
+    android:layout_gravity="center"
+    android:layout_marginBottom="16dp"
+    android:layout_marginLeft="@dimen/md_keylines"
+    android:layout_marginRight="16dp"
+    android:foreground="?attr/selectableItemBackground">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/cardImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/calvin" />
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/Title"
+        android:layout_alignBottom="@+id/cardImage"
+        android:text="Calvin Computer"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/white" />
+    <TextView
+        android:id="@+id/card_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardImage"
+        android:layout_margin="16dp"
+        android:text="Deskripsi"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/dark_grey"
+        android:textSize="16sp" />
+    <Button
+        android:id="@+id/action_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SATU"/>
-
-</android.support.constraint.ConstraintLayout>
+        android:layout_below="@id/card_text"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="?attr/colorPrimary"
+        android:text="VIEW" />
+</RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="places_picture">
+        <item>@drawable/calvin</item>
+        <item>@drawable/altech</item>
+        <item>@drawable/mediajualbeli</item>
+        <item>@drawable/mizan</item>
+        <item>@drawable/parahyangan</item>
+        <item>@drawable/sinarjaya</item>
+    </string-array>
+    <string-array name="places">
+        <item>Calvin Computer</item>
+        <item>Altech Computer</item>
+        <item>Royyan Computer</item>
+        <item>Mizan Service Center</item>
+        <item>Parahyangan Comp</item>
+        <item>Sinar Jaya Comp</item>
+    </string-array>
+    <string-array name="place_desc">
+        <item>Servis Laptop and Computer Calvin Comp</item>
+        <item>Servis Laptop and Computer Altech Comp</item>
+        <item>Servis Laptop and Computer Royyan Comp</item>
+        <item>Servis Laptop and Computer Mizan Service Center</item>
+        <item>Servis Laptop and Computer Parahyangan Comp</item>
+        <item>Servis Laptop and Computer Sinar Jaya Comp</item>
+    </string-array>
+    <string-array name="place_avator">
+        <item>@drawable/calvin</item>
+        <item>@drawable/altech</item>
+        <item>@drawable/mediajualbeli</item>
+        <item>@drawable/mizan</item>
+        <item>@drawable/parahyangan</item>
+        <item>@drawable/sinarjaya</item>
+    </string-array>
+    <string-array name="place_details">
+        <item>Calvin Computer Menerima Berbagai Macam servis Laptop, Komputer, dan Menyediakan Berbagain Part
+        Accessoris dan Peralatan jaringan.
+        </item>
+        <item>Altech Computer Menerima Berbagai Macam servis Laptop, Komputer, dan Menyediakan Berbagain Part
+        Accessoris dan Peralatan jaringan.</item>
+        <item>Royyan Computer Menerima Berbagai Macam servis Laptop, Komputer, dan Menyediakan Berbagain Part
+        Accessoris dan Peralatan jaringan.</item>
+        <item>Mizan Services Center Computer Menerima Berbagai Macam servis Laptop, Komputer, dan Menyediakan Berbagain Part
+        Accessoris dan Peralatan jaringan.</item>
+        <item>Parahyangan Comp Computer Menerima Berbagai Macam servis Laptop, Komputer, dan Menyediakan Berbagain Part
+        Accessoris dan Peralatan jaringan.</item>
+        <item>Sinar Jaya Comp Computer Menerima Berbagai Macam servis Laptop, Komputer, dan Menyediakan Berbagain Part
+        Accessoris dan Peralatan jaringan.</item>
+    </string-array>
+    <string-array name="place_locations">
+        <item>Alamat: Jl. Kutagara No. 55, Jagasatru, Pekalipan, Jagasatru, Pekalipan, Kota Cirebon, Jawa Barat 45116
+Jam buka: Tutup ⋅ Buka pukul 09.00
+Telepon: (0231) 232288
+Provinsi: Jawa Barat</item>
+        <item>
+            Jl. Kutagara No. 2,
+            Cirebon - Jawa Barat,
+            Telp/Fax. (0231) 208411 / 220880,
+            esia. (0231) 9170648,
+            SMS. 0838-2494-0111, 0231-9170648,
+            YM. altech_marketing , altech_marketing1
+        </item>
+        <item>
+            Alamat
+        Jalan Panembahan
+        Panembahan
+        Plered
+        Cirebon
+        Jawa Barat 45154
+        Indonesia,. Kontak 0822-4040-1355
+        </item>
+        <item>
+            Alamat: Jl. Dewi Sartika No.10, Tukmudal, Sumber, Cirebon, Jawa Barat 45611
+Jam buka: Tutup ⋅ Buka pukul 08.00, Telepon: 0858-6472-1677, Provinsi: Jawa Barat
+        </item>
+        <item>
+            Alamat: Cirebon Mall Lantai 1, Jl. Sarief Abdurachman No. 159, Panjunan, Lemahwungkuk, Kota Cirebon, Jawa Barat 45112
+Jam buka: Tutup ⋅ Buka pukul 10.00
+Telepon: (0231) 205662
+Provinsi: Jawa Barat
+        </item>
+        <item>
+            Jl. Pekiringan No.37 · (0231) 206474 , Tutup ⋅ Buka pukul 08.00
+        </item>
+    </string-array>
+</resources>

@@ -1,10 +1,13 @@
 package com.wordpress.oksareinaldi.servislaptop;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,7 +19,19 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.wordpress.oksareinaldi.servislaptop.ApiServices.BaseApiServices;
+import com.wordpress.oksareinaldi.servislaptop.ApiServices.UtilsApi;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.Calendar;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TambahServis extends AppCompatActivity implements View.OnClickListener{
     Button tanggal, jam, butTerJam, ButTerTanggal;
@@ -25,6 +40,9 @@ public class TambahServis extends AppCompatActivity implements View.OnClickListe
     Spinner spin;
     AutoCompleteTextView textView,textView1;
     int mYear, mMonth, mDay, mHour, mMinute;
+    ProgressDialog progressDialog;
+    Context mContext;
+    BaseApiServices mApiService;
 
     String[] kota = {
             "Cirebon",
@@ -51,7 +69,8 @@ public class TambahServis extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_servis);
-
+        mContext = this;
+        mApiService = UtilsApi.getAPIService();
         tanggal = findViewById(R.id.putTanggal);
         jam = findViewById(R.id.putJam);
         Nama = findViewById(R.id.Etnama);
@@ -170,6 +189,7 @@ public class TambahServis extends AppCompatActivity implements View.OnClickListe
         }
 
         if ( v == send){
+            progressDialog = ProgressDialog.show(mContext, null, "Please Wait ..", true, false);
             String nama = Nama.getText().toString();
             String jam = etJam.getText().toString();
             String tanggal = etTanggal.getText().toString();
@@ -185,19 +205,41 @@ public class TambahServis extends AppCompatActivity implements View.OnClickListe
             } else {
 
 
-               /* Intent intent = new Intent(MainActivity.this, hasilEstimasi.class);
-                Bundle b = new Bundle();
-                b.putString("Nama", nama);
-                b.putString("Tanggal", tanggal);
-                b.putString("Jam", jam);
-                b.putString("terjam", jamter);
-                b.putString("tertanggal", tanggalter);
-                b.putString("Rusak", kerusakan);
-                b.putString("kota", kota);
-                b.putString("brand", brand);
-                intent.putExtras(b);
-                startActivity(intent);*/
-               Toast.makeText(getBaseContext(), "Data Ditambahkan", Toast.LENGTH_SHORT).show();
+                mApiService.tambahReq(nama,brand,kerusakan,tanggalter,tanggal).enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()) {
+                            Log.i("debug", "onResponse: BERHASIL");
+                            progressDialog.dismiss();
+                            try {
+                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                if (jsonRESULTS.getString("error").equals("false")) {
+                                    String error = jsonRESULTS.getString("error_msg");
+                                    Toast.makeText(mContext, error, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(mContext, MainActivity.class));
+                                } else {
+                                    String error_message = jsonRESULTS.getString("error_msg");
+                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Log.i("debug", "onResponse: GAGAL!");
+                            progressDialog.dismiss();
+                        }
+                    }
+
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                        Toast.makeText(mContext, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
+                });
             }
         }
     }

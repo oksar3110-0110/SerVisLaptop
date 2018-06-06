@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">SerVisLaptop</string>
+    <string name="item_title">LIST</string>
+    <string name="item_desc">DESKRIPSI</string>
+    <string name="detail_desc">PROFIL</string>
+    <string name="detail_location">ALAMAT</string>
     <string-array name="kerusakan">
         <item>Mainboard</item>
         <item>LCD</item>

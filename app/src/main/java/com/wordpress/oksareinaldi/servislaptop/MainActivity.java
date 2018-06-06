@@ -20,20 +20,26 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.wordpress.oksareinaldi.servislaptop.Session.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     FloatingActionButton fab;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sessionManager = new SessionManager(this);
         // Adding Toolbar to Main screen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         setupViewPager(viewPager);
         // Set Tabs inside Toolbar
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        ImageButton logout = findViewById(R.id.loggBut);
         tabs.setupWithViewPager(viewPager);
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         // Adding Floating Action Button to bottom right of main view
         fab = findViewById(R.id.fab1);
@@ -52,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
                 /*Toast.makeText(getBaseContext(), "TAMBAH", Toast.LENGTH_SHORT).show();*/
                 Intent intent = new Intent(MainActivity.this, TambahServis.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sessionManager.saveBool(sessionManager.SESSION_STATUS, false);
+                startActivity(new Intent(MainActivity.this, Login.class));
                 finish();
             }
         });
@@ -94,25 +111,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }*/
 
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.nav_view) {
-            return true;
-        } else if (id == android.R.id.home) {
-            mDrawerLayout.openDrawer(GravityCompat.START);
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
+
+
 }
